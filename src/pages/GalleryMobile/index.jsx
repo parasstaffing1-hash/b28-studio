@@ -11,6 +11,7 @@ import {
   Title,
   Image,
 } from "./GalleryMobile";
+import { siteContent } from "../../content/siteContent";
 const GalleryMobile = () => {
   useEffect(() => {
     gsap.registerPlugin(Draggable);
@@ -18,6 +19,7 @@ const GalleryMobile = () => {
     const slideDelay = 1.5;
     const slides = document.querySelectorAll(".slide");
     const numSlides = slides.length;
+    if (numSlides === 0) return;
 
     gsap.set(slides, { xPercent: (i) => i * 100 });
 
@@ -85,6 +87,10 @@ const GalleryMobile = () => {
         .to(proxy, { x: wrapWidth, duration: 100, ease: "none" }, 0)
         .progress(progress);
     }
+
+    return () => {
+      window.removeEventListener("resize", resize);
+    };
   }, []);
 
   const galleryMobileData = galleryData.slice(0, 7);
@@ -93,12 +99,13 @@ const GalleryMobile = () => {
     
       <GalleryContainer name="galleryMobile">
         <SlidesContainer className="slides-container">
-          <Title>Nasze prace</Title>
+          <Title>{siteContent.gallery.mobileTitle}</Title>
           <SlidesWrap>
             {galleryMobileData.map((item) => (
               <Slide className="slide" key={item.id}>
                 <Image
                   src={item.img}
+                  alt={`Tattoo artwork ${item.id}`}
                   style={{ scale: 0.8 }}
                   whileInView={{
                     scale: 1,

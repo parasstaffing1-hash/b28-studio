@@ -2,21 +2,16 @@ import React from "react";
 import { Title } from "../Title";
 import {
   FooterWrap,
-  Text,
   Button,
   Wrap,
   StyledArrowUpwardRoundedIcon,
 } from "./Footer";
+import { siteContent } from "../../content/siteContent";
 
 const Footer = () => {
   return (
-    <FooterWrap
-      // style={{ opacity: 0, y: 50 }}
-      // whileInView={{ opacity: 1, y: 0 }}
-      // viewport={{ once: true }}
-      id="footer"
-    >
-      <Title>to już koniec, umów się na wizytę</Title>
+    <FooterWrap id="footer">
+      <Title>{siteContent.footer.title}</Title>
       <Button
         to="top"
         className="link hover"
@@ -24,6 +19,7 @@ const Footer = () => {
         offset={0}
         smooth={true}
         duration={1500}
+        aria-label="Scroll back to top"
       >
         <Wrap>
           <StyledArrowUpwardRoundedIcon />

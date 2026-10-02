@@ -152,7 +152,11 @@ export const Logo = styled.div`
     /* margin-top: 5em; */
   }
 `;
-export const StyledInstagramIcon = styled(InstagramIcon)`
+
+const Instagram = InstagramIcon?.default || InstagramIcon;
+const Facebook = FacebookOutlined?.default || FacebookOutlined;
+
+export const StyledInstagramIcon = styled(Instagram)`
   font-size: ${theme.fontSizes.normal} !important;
   text-decoration: none;
   color: ${theme.colors.fontWhite};
@@ -161,7 +165,7 @@ export const StyledInstagramIcon = styled(InstagramIcon)`
     color: ${theme.colors.fontDark};
   }
 `;
-export const StyledFacebookOutlined = styled(FacebookOutlined)`
+export const StyledFacebookOutlined = styled(Facebook)`
   font-size: ${theme.fontSizes.normal} !important;
   text-decoration: none;
   color: ${theme.colors.fontWhite};
@@ -170,3 +174,4 @@ export const StyledFacebookOutlined = styled(FacebookOutlined)`
     color: ${theme.colors.fontDark};
   }
 `;
+

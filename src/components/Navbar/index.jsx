@@ -4,6 +4,7 @@ import Facebook from "../../assets/images/facebook.svg";
 import Instagram from "../../assets/images/instagram.svg";
 import BurgerIcon from "../BurgerIcon";
 import MobileMenu from "../MobileMenu";
+import { siteContent } from "../../content/siteContent";
 import {
   NavbarContainer,
   LogoHeader,
@@ -48,7 +49,7 @@ const Navbar = () => {
           activeClass="active"
           to="aboutUs"
         >
-          O nas
+          {siteContent.navigation.about}
         </MenuLink>
         <MenuLink
           className="link hover"
@@ -58,7 +59,7 @@ const Navbar = () => {
           activeClass="active"
           to="gallery"
         >
-          Galeria
+          {siteContent.navigation.gallery}
         </MenuLink>
         <MenuLink
           className="link hover"
@@ -69,7 +70,7 @@ const Navbar = () => {
           activeClass="active"
           to="contact"
         >
-          Kontakt
+          {siteContent.navigation.contact}
         </MenuLink>
       </NavWrap>
       <NavSocials>
@@ -78,8 +79,10 @@ const Navbar = () => {
             className="hover"
             href="https://www.facebook.com/B28Tattoo"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit B28 Tattoo on Facebook"
           >
-            <Image src={Facebook} />
+            <Image src={Facebook} alt="Facebook" />
           </StyledLink>
         </NavSocial>
         <NavSocial>
@@ -87,8 +90,10 @@ const Navbar = () => {
             className="hover"
             href="https://www.instagram.com/b28tattoo/"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit B28 Tattoo on Instagram"
           >
-            <Image src={Instagram} />
+            <Image src={Instagram} alt="Instagram" />
           </StyledLink>
         </NavSocial>
       </NavSocials>

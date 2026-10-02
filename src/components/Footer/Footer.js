@@ -61,7 +61,10 @@ export const Wrap = styled.div`
     transform: translate(-50%, -60%);
   }
 `;
-export const StyledArrowUpwardRoundedIcon = styled(ArrowUpwardRoundedIcon)`
+
+const ArrowUp = ArrowUpwardRoundedIcon?.default || ArrowUpwardRoundedIcon;
+
+export const StyledArrowUpwardRoundedIcon = styled(ArrowUp)`
   position: relative;
   font-size: 2em !important;
   color: ${theme.colors.fontWhite};

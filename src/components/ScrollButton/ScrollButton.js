@@ -51,7 +51,9 @@ export const ArrowWrap = styled.div`
   }
 `;
 
-export const StyledArrowUpwardRoundedIcon = styled(ArrowUpwardRoundedIcon)`
+const ArrowUp = ArrowUpwardRoundedIcon?.default || ArrowUpwardRoundedIcon;
+
+export const StyledArrowUpwardRoundedIcon = styled(ArrowUp)`
   font-size: 2em !important;
   color: ${theme.colors.fontWhite};
   /* background-color: cadetblue; */

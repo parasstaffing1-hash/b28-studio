@@ -5,6 +5,8 @@ html {
 box-sizing: border-box;
 font-size: 20px;
 cursor: none !important;
+background-color: #141414;
+color: #ffffff;
 }
 
 *, *::after, *::before {
@@ -15,6 +17,8 @@ padding: 0;
 
 body {
     font-family: 'Playfair Display', sans-serif;
+    background-color: #141414;
+    color: #ffffff;
 }
 
 a, button {

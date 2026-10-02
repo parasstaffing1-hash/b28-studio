@@ -35,8 +35,8 @@ const LandingTitle = () => {
     <LandingTitleWrap ref={ref}>
       <TitleWrap
         id="landing"
-        style={{ y: "100%", skew: "5deg, 5deg" }}
-        whileInView={{
+        initial={{ y: "100%", skew: "5deg, 5deg" }}
+        animate={{
           skew: "0deg, 0deg",
           y: 0,
           transition: { duration: 2, delay: 4, type: "spring" },

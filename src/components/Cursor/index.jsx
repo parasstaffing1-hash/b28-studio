@@ -14,15 +14,16 @@ const Cursor = () => {
   });
 
   useEffect(() => {
-    document.addEventListener("mousemove", (e) => {
+    const handleMouseMove = (e) => {
       const { clientX, clientY } = e;
-      const mouseX = clientX;
-      const mouseY = clientY;
-
-      mainCursor.current.style.transform = `translate3d(${
-        mouseX - mainCursor.current.clientWidth / 2
-      }px, ${mouseY - mainCursor.current.clientHeight / 2}px, 0)`;
-    });
+      if (mainCursor.current) {
+        mainCursor.current.style.transform = `translate3d(${
+          clientX - mainCursor.current.clientWidth / 2
+        }px, ${clientY - mainCursor.current.clientHeight / 2}px, 0)`;
+      }
+    };
+    document.addEventListener("mousemove", handleMouseMove);
+    return () => document.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   useEffect(() => {
@@ -30,17 +31,27 @@ const Cursor = () => {
     const cursor = document.getElementById("cursor");
     const hover = document.querySelectorAll(".hover");
 
+    const onEnter = () => {
+      if (cursor) cursor.style.transform = "rotate(180deg) scale(2)";
+      if (cursorWrap) cursorWrap.style.backgroundColor = "white";
+    };
+    const onLeave = () => {
+      if (cursor) cursor.style.transform = "rotate(0deg) scale(1)";
+      if (cursorWrap) cursorWrap.style.backgroundColor = "transparent";
+    };
+
     hover.forEach((item) => {
-      item.addEventListener("mouseover", () => {
-        cursor.style.transform = "rotate(180deg) scale(2)";
-        cursorWrap.style.backgroundColor = "white";
-      });
-      item.addEventListener("mouseleave", () => {
-        cursor.style.transform = "rotate(0deg) scale(1)";
-        cursorWrap.style.backgroundColor = "transparent";
-      });
+      item.addEventListener("mouseover", onEnter);
+      item.addEventListener("mouseleave", onLeave);
     });
-  });
+
+    return () => {
+      hover.forEach((item) => {
+        item.removeEventListener("mouseover", onEnter);
+        item.removeEventListener("mouseleave", onLeave);
+      });
+    };
+  }, []);
   return (
     <CustomCursor ref={mainCursor} id="cursorWrap">
       <Wrap id="cursor"></Wrap>

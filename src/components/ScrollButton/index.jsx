@@ -19,6 +19,7 @@ const ScrollButton = () => {
         offset={0}
         smooth={true}
         duration={1500}
+        aria-label="Scroll back to top"
       >
         <ArrowWrap>
         <StyledArrowUpwardRoundedIcon />

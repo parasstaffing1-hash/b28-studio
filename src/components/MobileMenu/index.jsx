@@ -8,6 +8,7 @@ import {
   MobileItemContainer,
   ItemLink,
 } from "./MobileMenu";
+import { siteContent } from "../../content/siteContent";
 const MobileMenu = ({setIsOpenHandler}) => {
   const menu = {
     hidden: {
@@ -117,7 +118,7 @@ const MobileMenu = ({setIsOpenHandler}) => {
           smooth={true}
           onClick={setIsOpenHandler}
         >
-          Strona główna
+          {siteContent.navigation.home}
         </ItemLink>
       </MobileItemContainer>
       <MobileItemContainer
@@ -133,7 +134,7 @@ const MobileMenu = ({setIsOpenHandler}) => {
           smooth={true}
           onClick={setIsOpenHandler}
         >
-          O nas
+          {siteContent.navigation.about}
         </ItemLink>
       </MobileItemContainer>
       <MobileItemContainer
@@ -149,7 +150,7 @@ const MobileMenu = ({setIsOpenHandler}) => {
           smooth={true}
           onClick={setIsOpenHandler}
         >
-          Galeria
+          {siteContent.navigation.gallery}
         </ItemLink>
       </MobileItemContainer>
       <MobileItemContainer
@@ -165,7 +166,7 @@ const MobileMenu = ({setIsOpenHandler}) => {
           smooth={true}
           onClick={setIsOpenHandler}
         >
-          Kontakt
+          {siteContent.navigation.contact}
         </ItemLink>
       </MobileItemContainer>
     </MobileMenuContainer>

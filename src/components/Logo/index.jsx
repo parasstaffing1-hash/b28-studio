@@ -11,7 +11,7 @@ const Logo = () => {
       }}
       viewport={{ once: true }}
     >
-      <Image src={LogoB28} />
+      <Image src={LogoB28} alt="B28 Tattoo Studio Logo" />
     </LogoContainer>
   );
 };

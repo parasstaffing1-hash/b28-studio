@@ -13,6 +13,7 @@ import {
   Logo,
   Arrow,
 } from "./AboutUsDesktop";
+import { siteContent } from "../../content/siteContent";
 const AboutUsDesktop = () => {
   return (
     <Container vh="fit-content">
@@ -27,13 +28,9 @@ const AboutUsDesktop = () => {
           // }}
           // viewport={{ once: true }}
           >
-            <Text big>Studio Projekt B28</Text>
+            <Text big>{siteContent.about.title}</Text>
             <Text>
-              oferuje fachowe i twórcze podejście do tematu tatuowania.
-              Podstawowym celem naszej działalności jest tworzenie
-              indywidualnych i niepowtarzalnych wzorów. Klient może skorzystać u
-              nas z przygotowanych do wglądu, przygotować własny projekt lub
-              zamówić u nas projekt tatuażu ”na życzenie”.
+              {siteContent.about.description}
             </Text>
           </TextContainer>
         </AboutUsWrap>

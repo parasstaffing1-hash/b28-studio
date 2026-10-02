@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/all";
 import { useEffect } from "react";
 import { galleryData } from "../../assets/data/galleryData";
 import GalleryTitle from "../../components/GalleryTitle";
@@ -9,12 +9,16 @@ import {
   ImageContainer,
   ProgressBar,
 } from "./GalleryDesktop.js";
+
+const ST = ScrollTrigger?.ScrollTrigger || ScrollTrigger;
+
 const GalleryDesktop = () => {
   //horizontal scroll
-  gsap.registerPlugin(ScrollTrigger);
+  if (ST) gsap.registerPlugin(ST);
   useEffect(() => {
     const component = document.querySelector("#component");
     const container = document.querySelector("#container");
+    if (!container || !component) return;
     let images = gsap.utils.toArray(".imge");
 
     let scrollTween = gsap.to(component, {
@@ -116,6 +120,8 @@ const GalleryDesktop = () => {
               col={item.col}
               row={item.row}
               img={item.img}
+              role="img"
+              aria-label={`Tattoo portfolio piece ${item.id}`}
             />
           ))}
         </Slide>

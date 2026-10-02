@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { Container, Text } from "./GalleryTitle";
+import { siteContent } from "../../content/siteContent";
 
 const GalleryTitle = () => {
-  const text1 = useRef();
-  const text2 = useRef();
+  const text1 = useRef(null);
+  const text2 = useRef(null);
   useEffect(() => {
-    const texts = ["Nasze prace", "Nasza twórczość", "Nasze tatuaże", "Nasze dzieła"];
+    const texts = siteContent.gallery.morphTexts;
+    if (!texts || texts.length === 0) return;
 
     const morphTime = 2;
     const cooldownTime = 0.25;
@@ -14,9 +16,11 @@ const GalleryTitle = () => {
     let time = new Date();
     let morph = 0;
     let cooldown = cooldownTime;
+    let animId = null;
+    let isCancelled = false;
 
-    text1.current.textContent = texts[textIndex % texts.length];
-    text2.current.textContent = texts[(textIndex + 1) % texts.length];
+    if (text1.current) text1.current.textContent = texts[textIndex % texts.length];
+    if (text2.current) text2.current.textContent = texts[(textIndex + 1) % texts.length];
 
     const doMorph = () => {
       morph -= cooldown;
@@ -33,6 +37,7 @@ const GalleryTitle = () => {
     };
 
     const setMorph = (fraction) => {
+      if (!text1.current || !text2.current) return;
       text2.current.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
       text2.current.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
 
@@ -45,6 +50,7 @@ const GalleryTitle = () => {
     };
 
     const doCooldown = () => {
+      if (!text1.current || !text2.current) return;
       morph = 0;
 
       text2.current.style.filter = "";
@@ -55,7 +61,10 @@ const GalleryTitle = () => {
     };
 
     const animate = () => {
-      requestAnimationFrame(animate);
+      if (isCancelled) return;
+      if (!text1.current || !text2.current) return;
+
+      animId = requestAnimationFrame(animate);
 
       let newTime = new Date();
       let shouldIncrementIndex = cooldown > 0;
@@ -76,10 +85,17 @@ const GalleryTitle = () => {
     };
 
     animate();
+
+    return () => {
+      isCancelled = true;
+      if (animId) {
+        cancelAnimationFrame(animId);
+      }
+    };
   }, []);
   return (
     <>
-      <Container id="container">
+      <Container id="galleryTitleContainer">
         <Text ref={text1} id="text1"></Text>
         <Text ref={text2} id="text2"></Text>
       </Container>
