@@ -7,6 +7,7 @@ font-size: 20px;
 cursor: none !important;
 background-color: #141414;
 color: #ffffff;
+scroll-behavior: smooth;
 }
 
 *, *::after, *::before {

@@ -15,33 +15,13 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import ScrollButton from "./components/ScrollButton";
 import gsap from "gsap";
-import { ScrollSmoother } from "gsap-trial/all";
 import { ScrollTrigger } from "gsap/all";
 import Cursor from "./components/Cursor";
 
 function App() {
   console.log("[APP] App component function executing");
   useEffect(() => {
-    gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-
-    let smoother;
-    try {
-      if (ScrollSmoother.get()) {
-        ScrollSmoother.get().kill();
-      }
-      smoother = ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        effects: true,
-        smooth: 0.6,
-        smoothTouch: 0.1,
-      });
-      smoother?.effects("#logobg", {
-        speed: 0.5,
-      });
-    } catch (e) {
-      console.warn("ScrollSmoother creation warning:", e);
-    }
+    gsap.registerPlugin(ScrollTrigger);
     gsap.to("#arrowleft", {
       scrollTrigger: {
         trigger: "#arrowleft",
