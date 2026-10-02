@@ -12,7 +12,6 @@
     "gsap-trial": "^3.11.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-scripts": "5.0.1",
     "react-scroll": "^1.8.7",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
@@ -21,9 +20,7 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
-    "build": "vite build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "vite build && node -e \"const fs = require('fs'); fs.cpSync('dist', 'build', {recursive: true});\""
   },
   "eslintConfig": {
     "extends": [
