@@ -47,10 +47,10 @@ const ContactContent = () => {
           <InfoWrap>
             <StyledLink
               className="hover"
-              href="https://www.facebook.com/B28Tattoo"
+              href="https://facebook.com/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visit B28 Tattoo Facebook page"
+              aria-label="Visit our Facebook page"
             >
               <StyledFacebookOutlined />
               <Text>Facebook</Text>
@@ -59,37 +59,37 @@ const ContactContent = () => {
           <InfoWrap>
             <StyledLink
               className="hover"
-              href="https://www.instagram.com/b28tattoo/"
+              href="https://instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visit B28 Tattoo Instagram"
+              aria-label="Visit our Instagram"
             >
               <StyledInstagramIcon />
-              <Text>B28 studio</Text>
+              <Text>Studio Instagram</Text>
             </StyledLink>
           </InfoWrap>
           <InfoWrap>
             <StyledLink
               className="hover"
-              href="https://www.instagram.com/b28_damian/"
+              href="https://instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visit artist Damian's Instagram"
+              aria-label="Visit artist Instagram"
             >
               <StyledInstagramIcon />
-              <Text>B28 Damian</Text>
+              <Text>Artist One</Text>
             </StyledLink>
           </InfoWrap>
           <InfoWrap>
             <StyledLink
               className="hover"
-              href="https://www.instagram.com/demonology_ink/"
+              href="https://instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visit demonology_ink Instagram"
+              aria-label="Visit artist Instagram"
             >
               <StyledInstagramIcon />
-              <Text>demonology_ink</Text>
+              <Text>Artist Two</Text>
             </StyledLink>
           </InfoWrap>
         </InfoContainer>

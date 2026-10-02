@@ -77,10 +77,10 @@ const Navbar = () => {
         <NavSocial>
           <StyledLink
             className="hover"
-            href="https://www.facebook.com/B28Tattoo"
+            href="https://facebook.com/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit B28 Tattoo on Facebook"
+            aria-label="Visit us on Facebook"
           >
             <Image src={Facebook} alt="Facebook" />
           </StyledLink>
@@ -88,10 +88,10 @@ const Navbar = () => {
         <NavSocial>
           <StyledLink
             className="hover"
-            href="https://www.instagram.com/b28tattoo/"
+            href="https://instagram.com/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit B28 Tattoo on Instagram"
+            aria-label="Visit us on Instagram"
           >
             <Image src={Instagram} alt="Instagram" />
           </StyledLink>
